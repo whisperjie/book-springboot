@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.whisper.blog.mapper.NovelMapper">
+    <resultMap id="userMap" type="com.whisper.blog.entity.Novel">
+        <id property="id" column="id"/>
+        <id property="author" column="author"/>
+        <id property="size" column="size"/>
+        <id property="intro" column="intro"/>
+        <id property="title" column="title"/>
+    </resultMap>
+<select id="findById" resultMap="userMap" >
+    select * from novel where id=#{id}
+</select>
+    <select id="findAll" resultMap="userMap">
+        select * from novel
+    </select>
+    <select id="findByName" resultMap="userMap" parameterType="java.lang.String">
+        select * from novel where title like '%${name}%'
+    </select>
+    <delete id="delById" parameterType="java.lang.Integer">
+        delete  from  novel where id=#{id}
+    </delete>
+    <insert id="addNovel" parameterType="com.whisper.blog.entity.User">
+        insert into novel values (null,#{author},#{title},#{size},#{intro})
+    </insert>
+</mapper>

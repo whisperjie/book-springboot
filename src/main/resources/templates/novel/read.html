@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+<h3 th:text="${novel.getTitle()}"></h3>
+<div class="w-100" style="  display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;">
+    <div class="float-left" style=" flex: auto;width: 500px;">
+
+    <a th:href="@{'/novel/'+${novel.getId()}+'/read/0'}" th:text="前言" style=" flex: auto;width: 500px;"></a>
+
+    </div>
+    <div class="float-left" th:each="cata: ${catalogList}" style=" flex: auto;width: 500px;">
+        <a th:href="@{'/novel/'+${novel.getId()}+'/read/'+${cata.getId()}}" th:text="${cata.getName()}"></a>
+    </div>
+</div>
+</body>
+</html>

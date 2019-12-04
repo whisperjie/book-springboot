@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h3>暂时还未写转码代码，亲先转为utf-8再上传,章节目录最好是-------> 第一章 xxxx 这种</h3>
+    <form action="/novel/" method="post" enctype="multipart/form-data">
+        name:<input name="name" type="text"><br>
+        author: <input type="text" name="author"><br>
+        intro： <textarea name="intro" id="" cols="30" rows="10"></textarea><br>
+        <input type="file" name="book"><br>
+        <input type="submit" value="提交">
+    </form>
+
+</div>
+</body>
+</html>

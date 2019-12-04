@@ -1,0 +1,24 @@
+server:
+  port: 8000
+
+mybatis:
+  type-aliases-package: com.whisper.blog.entity
+  mapper-locations: classpath:mapper/*.xml
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql:///test?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+    mode: html
+    prefix: classpath:/templates/
+    suffix: .html
+#  mvc:
+ #   static-path-pattern: /static/**
+  servlet:
+    multipart:
+      max-file-size: 100000000
+      max-request-size: 100000000
+
