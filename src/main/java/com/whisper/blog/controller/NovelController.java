@@ -32,7 +32,7 @@ public class NovelController {
             modelAndView.addObject("show",false);
             Long lines =NovelUtil.getLines(novel.getTitle());
             int  index= (int) (lines/100);
-            for (int i = 1; i<index;i++) {
+            for (int i = 1; i<=index;i++) {
                 Catalog catalog=new Catalog();
                 catalog.setId((long) i);
                 catalog.setName(String.valueOf(i*100));
@@ -62,11 +62,13 @@ public class NovelController {
             int start=index*100;
             Long end=0L;
             if (index==offset/100){
-                end= Long.valueOf(index*100+100-1);
-            }else{
+
                 end=offset;
+            }else{
+                end= Long.valueOf(index*100+100-1);
             }
             lines = NovelUtil.getText(novel.getTitle(), (long)start, end);
+
         }else{
             if (index==0){
                 lines=NovelUtil.getText(novel.getTitle(),0L,catalogList.get(index).getStart()-1);
